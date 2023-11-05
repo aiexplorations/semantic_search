@@ -1,3 +1,6 @@
+fastapi
+pydantic
+uvicorn
 sentence-transformers
 qdrant-client
 numpy
