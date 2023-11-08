@@ -7,7 +7,13 @@ The user can submit a query to the application via a command line, and the app p
 
 ## Application details
 
-The application consists of
+The application consists of the following:
+1. Database - Qdrant vector DB
+2. FastAPI backend
+3. Streamlit front end
+4. CLI application
+
+Details of these are below.
 
 ### A database 
 1. A Qdrant vector store deployed on a local docker container (deployed at application startup)
@@ -41,6 +47,10 @@ Since this is a really simple app, the idea was to use Mini LM to get the job do
 4. Run the Python backend server
 
 You should now be able to run the frontend server via Streamlit, or run the CLI to search your 50k books.
+
+### Some things to check
+1. Data download path
+2. CLI results display
 
 ## Things to Work on
 1. Exception handling and unit tests
