@@ -33,6 +33,16 @@ https://www.kaggle.com/datasets/jdobrow/57000-books-with-metadata-and-blurbs/
 ### Embedding model
 Since this is a really simple app, the idea was to use Mini LM to get the job done.
 
+## Installation and Configuration
+0. Clone the repo and set up a Python virtual environment using the requirements file
+1. Run a local instance of Qdrant with the default settings to get it running on localhost:6333
+2. Run the python script for data download - **takes a few minutes**
+3. Run the python script for Qdrant data loading - **may take several minutes**
+4. Run the Python backend server
+
+You should now be able to run the frontend server via Streamlit, or run the CLI to search your 50k books.
+
+
 ## Things to Work on
 1. Containerization with Dockerfiles and Docker compose
 2. Easier Deployability and handling of variables
