@@ -42,10 +42,12 @@ Since this is a really simple app, the idea was to use Mini LM to get the job do
 
 You should now be able to run the frontend server via Streamlit, or run the CLI to search your 50k books.
 
-
 ## Things to Work on
-1. Containerization with Dockerfiles and Docker compose
-2. Easier Deployability and handling of variables
-3. Exception Handling
-4. Test cases and automation
+1. Exception handling and unit tests
+2. Containerization with Dockerfiles and Docker compose
+    1. Front end container
+    2. Backend container
+    3. Qdrant container
+    4. Container for data download and vector computation
+3. Easier Deployability via a CI/CD pipelineand handling of app variables
 
