@@ -6,3 +6,6 @@ qdrant-client
 numpy
 pandas
 kaggle
+streamlit
+prettytable
+tabulate

@@ -10,7 +10,7 @@ Note: An instance of Qdrant on local on port 6333 is used in this POC. The Qdran
 
 
 # Modify the corpus size to persist more or fewere books' records to the vector DB
-corpus_size=500
+corpus_size=20000
 
 # data loaded from Kaggle into the data directory is accessed here
 df = pd.read_csv("../data/books_with_blurbs.csv", header=0).head(corpus_size)
