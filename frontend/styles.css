@@ -1,0 +1,42 @@
+/* styles.css */
+
+/* General styles */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Headings */
+h1 {
+    color: #00ff00; /* Green accent */
+}
+
+/* Forms */
+form {
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+input[type="file"],
+input[type="text"] {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #00ff00; /* Green accent */
+    padding: 10px;
+    margin-right: 10px;
+}
+
+/* Buttons */
+button {
+    background-color: #00ff00; /* Green accent */
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00cc00; /* Darker green on hover */
+}

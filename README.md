@@ -1,63 +1,97 @@
-# Semantic Search
+# Semantic Search Application
 
-This is a simple semantic search application which implements a vector similarity based approach for searching a corpus of records, mostly books with blurbs, ISBN and other details.
+This project is a semantic search application that leverages FastAPI for the backend, React for the frontend, and Qdrant for vector search. The application downloads books from Project Gutenberg, processes them, and allows users to perform semantic searches on the text content.
 
-The user can submit a query to the application via a command line, and the app picks up search terms as arguments and finds the nearest books to the text supplied, using the input provided by the user.
+## Table of Contents
+
+- [Features](#features)
+- [Architecture](#architecture)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- Download and process books from Project Gutenberg.
+- Extract text content from downloaded books.
+- Compute embeddings for text content using the BGE model.
+- Store embeddings and text content in Qdrant.
+- Perform semantic searches on the stored text content.
+- User-friendly frontend interface for searching and displaying results.
+
+## Architecture
+
+The application consists of three main components:
+
+1. **Backend**: Built with FastAPI, handles downloading, processing, and storing book data.
+2. **Frontend**: Built with React, provides a user interface for searching and displaying results.
+3. **Qdrant**: Vector search engine for storing and querying embeddings.
+
+## Requirements
+
+- Docker
+- Docker Compose
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/semantic-search-app.git
+cd semantic-search-app
+```
+
+### Run the app
+```bash
+docker-compose up
+```
+## Endpoints
+
+## API Endpoints
+
+The backend provides the following API endpoints:
+
+- `GET /books`: Retrieves a list of all books in the database.
+- `GET /books/{book_id}`: Retrieves a specific book by its ID.
+- `POST /books`: Adds a new book to the database.
+- `PUT /books/{book_id}`: Updates an existing book in the database.
+- `DELETE /books/{book_id}`: Deletes a book from the database.
+
+- `GET /search`: Performs a semantic search based on user input.
+- `POST /embeddings`: Computes embeddings for a given text.
+
+Please refer to the [API documentation](/workspaces/semantic_search/docs/api.md) for more details on each endpoint.
+
+## Frontend
+
+The frontend of the semantic search application is built using JavaScript (JS) and CSS. It leverages the React library to create a user-friendly interface for searching and displaying results.
+
+The frontend components are organized in a modular and reusable manner, allowing for easy maintenance and scalability. The application utilizes modern JS features and best practices, such as functional components, hooks, and state management.
+
+CSS is used to style the frontend components and create an appealing visual design. The application follows responsive design principles, ensuring that it looks and functions well on different screen sizes and devices.
+
+In addition to React and CSS, the frontend may also utilize other libraries and frameworks for specific functionalities, such as data visualization or form handling.
+
+Overall, the frontend of the semantic search application provides an intuitive and interactive user experience, enabling users to easily search for books and view the search results.
+
+## Development
+
+To contribute to the development of this project, follow these steps:
+
+1. Fork the repository.
+2. Clone the forked repository to your local machine.
+3. Install the required dependencies using `pip install -r requirements.txt`.
+4. Start the backend server using `uvicorn main:app --reload`.
+5. Start the frontend development server using `npm start`.
+6. Make your changes and submit a pull request.
 
 
-## Application details
+## Contributing
+TBD
 
-The application consists of the following:
-1. Database - Qdrant vector DB
-2. FastAPI backend
-3. Streamlit front end
-4. CLI application
-
-Details of these are below.
-
-### A database 
-1. A Qdrant vector store deployed on a local docker container (deployed at application startup)
-2. A Python script for downloading a dataset (Only needs to be run when dataset is updated)
-3. A Python script for loading vectors computed from the data, into Qdrant, into specific collections (Also run when dataset is updated)
-4. Methods for specifying the model used for embedding computation
-
-### A backend
-1. A Python script which implements a FastAPI server with one endpoint, that receives requests from a front end, and connects to the Qdrant backend database
-2. Compute a vector / embedding based on user queries, and use this to perform similarity searches on Qdrant
-2. Some utilities for simple tasks that are performed on the backend
-
-### A front end
-1. A streamlit front-end that opens up in a browser, and connects with the aforementioned backend
-2. Ability to receive any user input in the form of text, and vectorize it, and search on Qdrant via the backend
-2. Display capability on the front-end for tabular search results
-
-
-### Dataset
-The 57000 books dataset on Kaggle with metadata and blurbs:  
-https://www.kaggle.com/datasets/jdobrow/57000-books-with-metadata-and-blurbs/ 
-
-### Embedding model
-Since this is a really simple app, the idea was to use Mini LM to get the job done.
-
-## Installation and Configuration
-0. Clone the repo and set up a Python virtual environment using the requirements file
-1. Run a local instance of Qdrant with the default settings to get it running on localhost:6333
-2. Run the python script for data download - **takes a few minutes**
-3. Run the python script for Qdrant data loading - **may take several minutes**
-4. Run the Python backend server
-
-You should now be able to run the frontend server via Streamlit, or run the CLI to search your 50k books.
-
-### Some things to check
-1. Data download path
-2. CLI results display
-
-## Things to Work on
-1. Exception handling and unit tests
-2. Containerization with Dockerfiles and Docker compose
-    1. Front end container
-    2. Backend container
-    3. Qdrant container
-    4. Container for data download and vector computation
-3. Easier Deployability via a CI/CD pipelineand handling of app variables
-
+## License
+TBD
